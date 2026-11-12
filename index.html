@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B4 Men's Day – Những chiến thần sân cầu</title>
+  <meta name="description" content="Đoán đúng 10 đồng đội qua ảnh cắt để mở quà 19/11 từ chị em B4.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://danghangvnu.github.io/b4-mens-day/">
+  <meta property="og:title" content="B4 Men's Day – Những chiến thần sân cầu">
+  <meta property="og:description" content="Đoán đúng 10 đồng đội qua ảnh cắt để mở quà 19/11 từ chị em B4.">
+  <meta property="og:image" content="https://danghangvnu.github.io/b4-mens-day/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏸</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Vạch sân vẽ bằng SVG -->
+  <svg class="court" viewBox="0 0 610 1340" preserveAspectRatio="none" aria-hidden="true">
+    <rect x="1" y="1" width="608" height="1338" pathLength="1" />
+    <line x1="46" y1="1" x2="46" y2="1339" pathLength="1" />
+    <line x1="564" y1="1" x2="564" y2="1339" pathLength="1" />
+    <line x1="1" y1="76" x2="609" y2="76" pathLength="1" />
+    <line x1="1" y1="1264" x2="609" y2="1264" pathLength="1" />
+    <line x1="1" y1="472" x2="609" y2="472" pathLength="1" />
+    <line x1="1" y1="868" x2="609" y2="868" pathLength="1" />
+    <line x1="305" y1="1" x2="305" y2="472" pathLength="1" />
+    <line x1="305" y1="868" x2="305" y2="1339" pathLength="1" />
+    <line class="net" x1="1" y1="670" x2="609" y2="670" pathLength="1" />
+  </svg>
+
+  <button class="sound-btn" id="sound-btn" type="button" aria-label="Bật âm thanh" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" /><path class="wave" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11" /><path class="mute" d="M16 9l5 6M21 9l-5 6" /></svg>
+  </button>
+
+  <!-- ===== MÀN 0: TỦ ĐỒ KHÓA ===== -->
+  <section class="screen" id="screen-lock">
+    <p class="occasion">Ngày Quốc tế Nam giới, 19 tháng 11</p>
+    <div class="locker-wrap">
+      <div class="locker" id="locker">
+        <div class="locker-door">
+          <div class="vents"><span></span><span></span><span></span></div>
+          <div class="plate">B4</div>
+          <p class="plate-sub">Tủ đồ các chiến thần</p>
+          <div class="locker-handle"></div>
+        </div>
+        <div class="locker-inside"><span class="inside-glow"></span></div>
+      </div>
+      <button class="tag" id="hint-btn" type="button"><span class="tag-hole"></span>Quên mật mã?</button>
+    </div>
+    <p class="lock-title" id="lock-title">Mời anh mở tủ</p>
+    <p class="lock-sub">Xoay đúng 4 con số</p>
+    <div class="wheels" id="wheels" role="group" aria-label="Khóa số"></div>
+  </section>
+
+  <!-- ===== MÀN 1: BẮT ĐẦU ===== -->
+  <section class="screen" id="screen-start" hidden>
+    <h1 class="logo">
+      <span class="logo-main" id="site-title"></span>
+      <span class="logo-sub" id="site-sub"></span>
+    </h1>
+    <p class="slogan" id="slogan"></p>
+    <div class="panel start-panel">
+      <p class="big-q">Bạn đã sẵn sàng chơi chưa?</p>
+      <p class="muted">Đoán đúng hết đồng đội qua ảnh cắt thì mới được nhận quà. Không đoán được thì… tự hiểu.</p>
+      <button class="btn" id="start-btn" type="button">Bắt đầu</button>
+    </div>
+  </section>
+
+  <!-- ===== MÀN 2: ĐOÁN ĐỒNG ĐỘI ===== -->
+  <section class="screen" id="screen-quiz" hidden>
+    <div class="progress">
+      <span id="progress-text">Câu 1/6</span>
+      <div class="progress-bar"><div id="progress-fill"></div></div>
+    </div>
+
+    <div class="panel quiz-panel">
+      <div class="photo-frame" id="photo-frame">
+        <img id="quiz-img" alt="Ảnh cần đoán">
+        <span class="seal" id="stamp">Chính xác</span>
+      </div>
+
+      <div id="ask-box">
+        <p class="big-q">Bạn đoán đây là ai?</p>
+        <form id="guess-form" autocomplete="off">
+          <input id="guess" type="text" placeholder="Nhập tên…" aria-describedby="guess-help">
+          <button class="btn" type="submit">Kiểm tra</button>
+        </form>
+        <p class="help" id="guess-help">Nhập tên hoặc biệt danh. Có thể gõ không dấu.</p>
+        <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+        <p class="roast" id="roast"></p>
+      </div>
+
+      <div id="card-box" hidden>
+        <p class="reveal-name" id="reveal-name"></p>
+        <p class="reveal-look" id="reveal-look"></p>
+        <p class="reveal-title" id="reveal-title"></p>
+        <ul class="stats" id="reveal-stats"></ul>
+        <button class="btn" id="next-btn" type="button">Câu tiếp theo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MÀN 3: HOÀN THÀNH ===== -->
+  <section class="screen" id="screen-done" hidden>
+    <p class="done-q">Chúc mừng, bạn đã đoán đúng tất cả! Chọn ảnh của bạn để đọc lời chúc nhé.</p>
+    <h2 class="board-title">Bảng vàng thành tích B4</h2>
+    <div class="members" id="members"></div>
+
+    <section class="moments" aria-labelledby="moments-title">
+      <h2 class="moments-title" id="moments-title">Khoảnh khắc B4</h2>
+      <p class="moments-sub">Lướt sang để xem lại một năm trên sân</p>
+      <div class="slider" id="slider" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Ảnh kỷ niệm B4"></div>
+      <div class="slider-nav">
+        <button class="nav-btn" id="slide-prev" type="button" aria-label="Ảnh trước">‹</button>
+        <div class="dots" id="dots"></div>
+        <button class="nav-btn" id="slide-next" type="button" aria-label="Ảnh sau">›</button>
+      </div>
+    </section>
+
+    <div class="closing">
+      <figure class="closing-photo" id="closing-photo-wrap">
+        <img id="closing-photo" alt="Ảnh tập thể chị em B4">
+        <figcaption id="closing-photo-cap"></figcaption>
+      </figure>
+      <h2 id="closing-title"></h2>
+      <p id="closing-text"></p>
+      <p class="treat-q" id="treat-q"></p>
+      <div class="treat-opts" id="treat-opts"></div>
+      <p class="treat-reveal" id="treat-reveal" hidden></p>
+    </div>
+    <footer id="footer"></footer>
+  </section>
+
+  <!-- ===== HỘP QUÀ + LỜI NHẮN ===== -->
+  <div class="overlay" id="wish" hidden>
+    <div class="wish-wrap" role="dialog" aria-modal="true" aria-labelledby="cert-name">
+      <button class="close-x" id="wish-close" type="button" aria-label="Đóng">✕</button>
+
+      <div class="gift" id="gift">
+        <button class="gift-box" id="gift-box" type="button" aria-label="Mở hộp quà">
+          <span class="gift-lid"></span>
+          <span class="gift-body"></span>
+          <span class="gift-ribbon"></span>
+          <span class="gift-bow"></span>
+        </button>
+        <p class="gift-hint">Chạm để mở quà</p>
+      </div>
+
+      <div class="letter" id="letter" hidden>
+        <div class="cert">
+          <p class="cert-head">Bằng khen</p>
+          <img class="cert-photo" id="cert-photo" alt="">
+          <p class="cert-small">Chúc mừng</p>
+          <p class="cert-name" id="cert-name"></p>
+          <p class="cert-look" id="cert-look"></p>
+          <p class="cert-small">chính thức được phong làm</p>
+          <p class="cert-title" id="cert-title"></p>
+          <p class="cert-small" id="cert-year"></p>
+          <span class="cert-seal" aria-hidden="true">B4</span>
+        </div>
+        <p class="msg" id="msg"></p>
+        <p class="sign" id="sign"></p>
+        <button class="btn btn-quiet" id="save-btn" type="button">Lưu bằng khen</button>
+        <p class="save-note" id="save-note"></p>
+        <img class="cert-img" id="cert-img" alt="Bằng khen dạng ảnh" hidden>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="hint" hidden>
+    <div class="panel hint-panel">
+      <p class="big-q">Gợi ý mật mã</p>
+      <p id="hint-text"></p>
+      <button class="btn" id="hint-close" type="button">Đã hiểu</button>
+    </div>
+  </div>
+
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
