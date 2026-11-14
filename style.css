@@ -353,7 +353,7 @@ footer { font-family: var(--head); font-weight: 700; font-size: 17px; color: #ff
   box-shadow: inset 0 0 0 6px #fff, inset 0 0 0 9px var(--yellow);
 }
 .cert-head { font-family: var(--head); font-weight: 800; font-size: 30px; color: var(--court-dark); margin: 0; }
-.cert-photo { width: 150px; aspect-ratio: 5 / 6; object-fit: cover; border: 3px solid var(--ink); border-radius: var(--r-md); margin: 6px 0; }
+.cert-photo { width: 160px; aspect-ratio: 3 / 4; object-fit: cover; border: 3px solid var(--ink); border-radius: var(--r-md); margin: 6px 0; }
 .cert-look { margin: 2px 0 6px; font-family: var(--head); font-weight: 700; font-size: 16px; color: var(--court-dark); }
 .cert-small { margin: 0; font-size: 13px; color: var(--soft); }
 .cert-name { font-family: var(--head); font-weight: 800; font-size: 32px; margin: 0; line-height: 1.1; }
@@ -371,7 +371,9 @@ footer { font-family: var(--head); font-weight: 700; font-size: 17px; color: #ff
 
 /* ---------- Pháo giấy: đúng bảng màu + lông vũ ---------- */
 .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
-.piece { position: absolute; top: -24px; width: 10px; height: 14px; border-radius: 3px; animation: drop linear forwards; }
+.piece { position: absolute; top: -70px; animation: drop linear forwards; }
+.piece.racket svg { width: calc(26px * var(--size, 1)); height: auto; display: block; }
+.piece.shuttle svg { width: calc(20px * var(--size, 1)); height: auto; display: block; }
 .piece.feather {
   width: 8px; height: 24px; border-radius: 50% 50% 45% 45%;
   background: linear-gradient(90deg, #eef0ea, #fff 45%, #d6d9d0 50%, #fff 55%, #eef0ea);
@@ -384,3 +386,59 @@ footer { font-family: var(--head); font-weight: 700; font-size: 17px; color: #ff
   .court rect, .court line { stroke-dashoffset: 0; }
 }
 #closing-text { white-space: pre-line; text-align: left; }
+
+/* ---------- Ảnh chị em trong tủ + lời chào ---------- */
+.locker-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s .5s; }
+.locker.open .locker-photo { opacity: 1; }
+.locker-inside .inside-glow { mix-blend-mode: screen; }
+.welcome {
+  position: fixed; inset: 0; z-index: 44;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+  padding: 24px; background: rgba(16, 33, 29, .55);
+  animation: fadeIn .4s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } }
+.welcome-card {
+  margin: 0; width: min(420px, 92vw); padding: 12px 12px 0;
+  background: var(--cream); border: 3px solid var(--ink); border-radius: var(--r-lg);
+  box-shadow: 6px 6px 0 var(--ink); transform: rotate(-2deg);
+  animation: popIn .6s cubic-bezier(.3, 1.5, .5, 1);
+}
+@keyframes popIn { from { transform: scale(.4) rotate(-12deg); opacity: 0; } }
+.welcome-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 3px solid var(--ink); border-radius: var(--r-md); }
+.welcome-card figcaption {
+  position: relative; margin: -18px auto 14px; width: fit-content; padding: 4px 18px;
+  font-family: var(--head); font-weight: 800; font-size: clamp(20px, 5.5vw, 26px);
+  background: var(--yellow); border: 3px solid var(--ink); border-radius: var(--r-md);
+  transform: rotate(2deg);
+}
+#welcome-btn { font-size: 21px; padding: 11px 34px; }
+.locker-photo[src] ~ .inside-glow { display: none; }
+.welcome { background: rgba(16, 33, 29, .7); }
+
+/* ---------- Thả tim cảm ơn ---------- */
+.thanks {
+  width: min(600px, 100%); margin-top: 24px; text-align: center;
+  background: var(--cream); border: 3px solid var(--ink); border-radius: var(--r-lg); box-shadow: var(--shadow); padding: 22px;
+}
+.thanks h2 { font-family: var(--head); font-weight: 800; font-size: 24px; margin: 0; }
+.thanks-sub { margin: 4px 0 14px; color: var(--soft); }
+.heart-btn {
+  width: 88px; height: 88px; border-radius: 50%; font-size: 42px; line-height: 1;
+  background: var(--coral-soft); border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink);
+}
+.heart-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+.heart-btn.beat { animation: beat .35s ease; }
+@keyframes beat { 40% { transform: scale(1.18); } }
+.heart-count { min-height: 1.4em; margin: 12px 0 0; font-weight: 700; color: var(--court-dark); }
+.float-heart {
+  position: absolute; z-index: 60; pointer-events: none; font-size: 26px;
+  transform: translate(-50%, 0); animation: floatUp 1.5s ease-out forwards;
+}
+@keyframes floatUp { to { transform: translate(calc(-50% + var(--dx)), -200px) scale(1.4); opacity: 0; } }
+
+/* ---------- Nút chạy trốn ---------- */
+.welcome-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; align-items: center; }
+.runaway { font-size: 15px; padding: 8px 16px; touch-action: none; }
+.runaway.fleeing { position: fixed; z-index: 46; transition: left .22s ease, top .22s ease; }
+.runaway-msg { min-height: 1.4em; margin: -6px 0 0; color: #fff; font-weight: 700; text-shadow: 1px 1px 0 var(--ink); }

@@ -64,22 +64,42 @@ $("sound-btn").onclick = () => {
   SFX.click();
 };
 
-/* ---------- Pháo giấy: lá vàng + lông vũ ---------- */
+/* ---------- Pháo vợt cầu lông (thay cho pháo giấy) ---------- */
+function racketSVG(frame) {
+  const strings = [-9, -4.5, 0, 4.5, 9].map((x) => `<line x1='${x}' y1='-30' x2='${x}' y2='4'/>`).join("")
+    + [-24, -17, -10, -3].map((y) => `<line x1='-13' y1='${y}' x2='13' y2='${y}'/>`).join("");
+  return `<svg viewBox='-20 -40 40 92' xmlns='http://www.w3.org/2000/svg'>
+    <rect x='-3' y='14' width='6' height='34' rx='3' fill='#1e3530'/>
+    <rect x='-4' y='34' width='8' height='16' rx='3' fill='${frame === "#ffffff" ? "#ffd54f" : "#ffffff"}' stroke='#1e3530' stroke-width='1.5'/>
+    <line x1='0' y1='4' x2='0' y2='16' stroke='#1e3530' stroke-width='3'/>
+    <g stroke='#1e3530' stroke-width='.8' opacity='.55'><clipPath id='h'><ellipse cx='0' cy='-13' rx='15' ry='19'/></clipPath><g clip-path='url(#h)'>${strings}</g></g>
+    <ellipse cx='0' cy='-13' rx='15' ry='19' fill='none' stroke='#1e3530' stroke-width='6'/>
+    <ellipse cx='0' cy='-13' rx='15' ry='19' fill='none' stroke='${frame}' stroke-width='3.5'/>
+  </svg>`;
+}
+function shuttleSVG() {
+  return `<svg viewBox='-14 -18 28 40' xmlns='http://www.w3.org/2000/svg'>
+    <path d='M-12 -16 L12 -16 L6 8 L-6 8 Z' fill='#fff' stroke='#1e3530' stroke-width='2'/>
+    <path d='M-4 -16 L-2 8 M4 -16 L2 8' stroke='#1e3530' stroke-width='1' opacity='.5'/>
+    <ellipse cx='0' cy='13' rx='7' ry='7' fill='#ffd54f' stroke='#1e3530' stroke-width='2'/></svg>`;
+}
 function confetti(count = 90) {
   const layer = $("confetti");
-  const golds = ["#ffd54f", "#f2665a", "#ffffff", "#fff4c4", "#bfe8cf"];
-  for (let i = 0; i < count; i++) {
+  const frames = ["#ffd54f", "#f2665a", "#ffffff", "#5ec2e8", "#8fd9a8"];
+  const n = Math.max(8, Math.round(count / 3));
+  for (let i = 0; i < n; i++) {
     const c = document.createElement("span");
-    const isFeather = i % 4 === 0;
-    c.className = "piece" + (isFeather ? " feather" : "");
-    if (!isFeather) c.style.background = golds[i % golds.length];
+    const isShuttle = i % 4 === 3;
+    c.className = "piece " + (isShuttle ? "shuttle" : "racket");
+    c.innerHTML = isShuttle ? shuttleSVG() : racketSVG(frames[i % frames.length]);
     c.style.left = Math.random() * 100 + "vw";
-    c.style.setProperty("--drift", (Math.random() - 0.5) * 200 + "px");
-    c.style.setProperty("--spin", Math.random() * 720 + "deg");
-    c.style.animationDuration = 1.8 + Math.random() * 1.6 + "s";
-    c.style.animationDelay = Math.random() * 0.4 + "s";
+    c.style.setProperty("--drift", (Math.random() - 0.5) * 220 + "px");
+    c.style.setProperty("--spin", (Math.random() < 0.5 ? -1 : 1) * (180 + Math.random() * 540) + "deg");
+    c.style.setProperty("--size", 0.75 + Math.random() * 0.6);
+    c.style.animationDuration = 2 + Math.random() * 1.8 + "s";
+    c.style.animationDelay = Math.random() * 0.5 + "s";
     layer.appendChild(c);
-    setTimeout(() => c.remove(), 4200);
+    setTimeout(() => c.remove(), 4800);
   }
 }
 
@@ -112,10 +132,57 @@ function turn(i, step) {
     $("locker").classList.add("open");
     SFX.party();
     confetti(60);
-    setTimeout(() => show("screen-start"), 1800);
+    setTimeout(() => {
+      if (SITE.welcomePhoto) {
+        $("welcome").hidden = false;
+        confetti(80);
+        $("welcome-btn").focus({ preventScroll: true });
+      } else {
+        show("screen-start");
+      }
+    }, 1500);
   }
 }
 $("hint-text").textContent = SITE.passHint;
+if (SITE.welcomePhoto) {
+  $("locker-photo").src = SITE.welcomePhoto;
+  $("welcome-photo").src = SITE.welcomePhoto;
+}
+$("welcome-text").textContent = SITE.welcomeText || "";
+/* ---------- Nút "Không nhận quà" biết chạy trốn ---------- */
+(function runaway() {
+  const btn = $("no-btn");
+  const lines = ["Không nhận quà", "Né rồi nha 😝", "Bắt được thì nói", "Hụt rồi!", "Nhanh tay lên anh ơi", "Thôi vào chơi đi mà 🥺"];
+  const msgs = ["", "", "Nút này hơi nhát đó 🏃", "Chị em không cho từ chối đâu 😌", "Bấm \"Vào chơi\" đi cho nhanh nè 👉"];
+  let tries = 0;
+  function flee(e) {
+    if (e) e.preventDefault();
+    tries++;
+    btn.textContent = lines[Math.min(tries, lines.length - 1)];
+    $("runaway-msg").textContent = msgs[Math.min(tries, msgs.length - 1)] || "";
+    const r = btn.getBoundingClientRect();
+    const pad = 16;
+    const maxX = window.innerWidth - r.width - pad, maxY = window.innerHeight - r.height - pad;
+    let x, y, n = 0;
+    do {   // nhảy tới chỗ cách xa vị trí cũ
+      x = pad + Math.random() * Math.max(0, maxX - pad);
+      y = pad + Math.random() * Math.max(0, maxY - pad);
+    } while (Math.hypot(x - r.left, y - r.top) < 140 && ++n < 20);
+    btn.classList.add("fleeing");
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+    SFX.click();
+  }
+  btn.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") flee(); });
+  btn.addEventListener("pointerdown", flee);
+  btn.addEventListener("click", flee);   // bàn phím (Enter/Space) cũng bị né
+})();
+
+$("welcome-btn").onclick = () => {
+  SFX.click();
+  $("welcome").hidden = true;
+  show("screen-start");
+};
 $("hint-btn").onclick = () => ($("hint").hidden = false);
 $("hint-close").onclick = () => ($("hint").hidden = true);
 renderWheels();
@@ -346,6 +413,30 @@ CLOSING.treatOptions.forEach((t) => {
 });
 $("footer").textContent = CLOSING.footer;
 
+/* ---------- Thả tim cảm ơn chị em ---------- */
+$("thanks-title").textContent = CLOSING.thanksTitle || "Gửi lời cảm ơn tới chị em";
+$("thanks-sub").textContent = CLOSING.thanksSub || "";
+let hearts = 0;
+$("heart-btn").onclick = (e) => {
+  hearts++;
+  $("heart-count").textContent = `Đã thả ${hearts} tim cho chị em ♥`;
+  const btn = $("heart-btn");
+  btn.classList.remove("beat"); void btn.offsetWidth; btn.classList.add("beat");
+  const r = btn.getBoundingClientRect();
+  for (let i = 0; i < 5; i++) {
+    const h = document.createElement("span");
+    h.className = "float-heart";
+    h.textContent = ["❤️", "💚", "💛", "🧡", "💖"][Math.floor(Math.random() * 5)];
+    h.style.left = r.left + r.width / 2 + (Math.random() - 0.5) * 60 + "px";
+    h.style.top = r.top + window.scrollY + "px";
+    h.style.setProperty("--dx", (Math.random() - 0.5) * 120 + "px");
+    h.style.animationDelay = i * 0.06 + "s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 1700);
+  }
+  SFX.click();
+};
+
 /* ---------- Hộp quà + lời nhắn ---------- */
 let openMember = null;
 function openWish(i) {
@@ -419,7 +510,10 @@ $("save-btn").onclick = () => {
       ctx.textAlign = "center";
       ctx.fillStyle = "#23805a"; ctx.font = "800 96px 'Baloo 2', sans-serif"; ctx.fillText("Bằng khen", W / 2, 200);
       const pw = 400, ph = pw * 6 / 5, px = (W - pw) / 2, py = 232;
-      ctx.save(); R(px, py, pw, ph, 28); ctx.clip(); ctx.drawImage(img, px, py, pw, ph); ctx.restore();
+      ctx.save(); R(px, py, pw, ph, 28); ctx.clip();
+      { const s = Math.max(pw / img.naturalWidth, ph / img.naturalHeight), dw = img.naturalWidth * s, dh = img.naturalHeight * s;
+        ctx.drawImage(img, px + (pw - dw) / 2, py + (ph - dh) / 2, dw, dh); }
+      ctx.restore();
       ctx.lineWidth = 8; ctx.strokeStyle = "#1e3530"; R(px, py, pw, ph, 28); ctx.stroke();
       ctx.fillStyle = "#1e3530"; ctx.font = "800 84px 'Baloo 2', sans-serif"; ctx.fillText(m.name, W / 2, 800);
       if (m.lookalike) {

@@ -7,6 +7,8 @@ const SITE = {
   subtitle: "Những chiến thần sân cầu",
   slogan: "Trên sân là đối thủ – Ngoài sân là anh em – Trong lòng là những chiến thần cầu lông!",
   passcode: "1911",
+  welcomePhoto: "images/welcome.jpg",      // ảnh hiện ra khi mở tủ
+  welcomeText: "Chị em B4 chào các anh",
   passHint: "Ngày duy nhất trong năm các anh được chiều mà không phải bao nước. Ngày mấy, tháng mấy? Ghép lại thành 4 số nhé!",
   sender: "Chị em B4",
   year: 2026
@@ -32,133 +34,133 @@ const SITE = {
 const MEMBERS = [
   {
     name: "Hiệp",
-    answers: ["Hiệp"],
+    answers: ["Anh Hiệp"],
     lookalike: "Lee Dong Wook",
     photo: "images/members/hiep.jpg",
-    chibi: "images/chibi/hiep.svg",
+    chibi: "images/chibi/hiep.jpg",
     crop: { x: 8.8, y: 35.0, zoom: 5 },
-    hint: "",
+    hint: "Anh cả của hội. Gõ đủ 2 tiếng nha, bắt đầu bằng chữ A.",
     title: "Quý ông lịch lãm của sân cầu",
-    stats: { "Độ đẹp trai": 100, "Độ vui tính": 99, "Phong độ": 95, "Độ ngầu khi đội mũ": 100 },
+    stats: { "Độ đẹp trai": 98, "Độ vui tính": 99, "Phong độ": 95, "Độ ngầu khi đội mũ": 100 },
     award: "Thần thái đội mũ đẹp nhất hội",
-    message: "Gửi Lee Dong Wook của B4! Anh Hiệp là anh cả của hội, công việc bên ngành công an bận rộn là vậy mà vẫn sắp xếp ra sân đều đặn với tụi em. Anh vui tính, nói chuyện hài nên buổi nào có anh là sân rôm rả hẳn. Chúc anh 19/11 thật vui, công tác thuận lợi, sức khỏe dồi dào, tuần nào cũng ra sân đều với tụi em nha."
+    message: "Gửi Lee Dong Wook của B4! Anh Hiệp là anh cả của hội, công việc bên ngành công an bận rộn là vậy mà vẫn sắp xếp ra sân đều đặn với tụi em. Chúc anh 19/11 thật vui, công tác thuận lợi, sức khỏe dồi dào, tuần nào cũng ra sân đều với tụi em nha. Chúc anh năm nay công việc thăng tiến, mọi chuyện đều như ý!"
   },
   {
     name: "Phát",
     answers: ["Phát"],
     lookalike: "Ji Chang Wook",
     photo: "images/members/phat.jpg",
-    chibi: "images/chibi/phat.svg",
+    chibi: "images/chibi/phat.jpg",
     crop: { x: 36.8, y: 12.8, zoom: 6 },
     hint: "",
     title: "Chiến binh ánh mắt biết nói",
-    stats: { "Độ đẹp trai": 99, "Độ vui tính": 100, "Ánh mắt sát thương": 98, "Phát nào ăn điểm phát đó": 96 },
+    stats: { "Độ đẹp trai": 100, "Độ vui tính": 100, "Ánh mắt sát thương": 98, "Phát nào ăn điểm phát đó": 96 },
     award: "Đeo khẩu trang vẫn đẹp trai",
-    message: "Gửi Ji Chang Wook của B4! Cao, đẹp trai, đánh cầu hay, tính lại hiền và tốt bụng, nói chung Phát có đủ combo. Hiền vậy thôi chứ Phát mà pha trò là cả sân không nhịn được cười. Chúc Phát 19/11 vui vẻ, công việc suôn sẻ, phát nào ăn điểm phát đó, và cứ tốt bụng như vậy nhé, cả hội quý lắm."
+    message: "Gửi Ji Chang Wook của B4! Cao, đẹp trai, đánh cầu hay, tính lại hiền và tốt bụng, nói chung Phát có đủ combo. Chúc Phát 19/11 vui vẻ, công việc suôn sẻ, phát nào ăn điểm phát đó, và sớm có bồ nha!"
   },
   {
     name: "Trí",
     answers: ["Trí"],
     lookalike: "Hyun Bin",
     photo: "images/members/tri.jpg",
-    chibi: "images/chibi/tri.svg",
+    chibi: "images/chibi/tri.jpg",
     crop: { x: 47.5, y: 7.5, zoom: 5 },
     hint: "",
     title: "Học giả cầu lông",
     stats: { "Độ đẹp trai": 100, "Độ vui tính": 98, "Trí tuệ chiến thuật": 99, "Độ chỉn chu": 97 },
     award: "Búi tóc huyền thoại",
-    message: "Gửi Hyun Bin của B4! Ấn tượng đầu tiên của chị em về Trí là: đánh cầu hay nhất nhóm, mà mặt thì hơi lạnh, chắc khó gần. Chơi một thời gian mới biết Trí hòa đồng, dễ nói chuyện hơn vẻ ngoài nhiều. Chúc Trí 19/11 vui vẻ, mọi việc thuận lợi, giữ vững phong độ số một trên sân, còn búi tóc thì cứ giữ nguyên nha, đẹp lắm."
+    message: "Gửi Hyun Bin của B4! Ấn tượng đầu tiên của chị em về Trí là: đánh cầu hay nhất nhóm, mà mặt thì hơi lạnh, chắc khó gần. Chơi một thời gian mới biết Trí hòa đồng, dễ nói chuyện hơn vẻ ngoài nhiều. Chúc Trí 19/11 vui vẻ, mọi việc thuận lợi, giữ vững phong độ số một trên sân. Có gì chỉ chị em đánh với nha."
   },
   {
     name: "Huy",
     answers: ["Huy"],
     lookalike: "Lý Hiện",
     photo: "images/members/huy.jpg",
-    chibi: "images/chibi/huy.svg",
+    chibi: "images/chibi/huy.jpg",
     crop: { x: 62.2, y: 70.8, zoom: 5.5 },
     hint: "",
     title: "Nụ cười tỏa nắng",
-    stats: { "Độ đẹp trai": 99, "Độ vui tính": 100, "Nụ cười chữa lành": 100, "Năng lượng": 97 },
+    stats: { "Độ đẹp trai": 100, "Độ vui tính": 100, "Nụ cười chữa lành": 100, "Năng lượng": 97 },
     award: "Nụ cười đẹp nhất sân",
-    message: "Gửi Lý Hiện của B4! Nói tới người hài nhất hội thì không ai qua được Huy, có Huy là cả sân cười suốt. Mà ngoài hài ra thì Huy còn rất tốt bụng, nhờ gì cũng giúp. Chúc Huy 19/11 vui vẻ, khỏe mạnh, công việc thuận lợi, giữ mãi nụ cười tươi rói, và Messi đá trận nào thắng trận đó để Huy còn ăn mừng nha."
+    message: "Gửi Lý Hiện của B4! Huy hài thì khỏi bàn, mà hiền nữa, nhờ gì cũng giúp. Chúc Huy 19/11 vui vẻ, khỏe mạnh, công việc thuận lợi, và Messi đá trận nào thắng trận đó để Huy còn ăn mừng nha. Năm nay chúc Huy gặp nhiều may mắn, muốn gì được nấy!"
   },
   {
     name: "Mạnh",
     answers: ["Mạnh"],
     lookalike: "Song Joong Ki",
     photo: "images/members/manh.jpg",
-    chibi: "images/chibi/manh.svg",
+    chibi: "images/chibi/manh.jpg",
     crop: { x: 50.0, y: 93.8, zoom: 5 },
     hint: "",
     title: "Chàng trai năng lượng",
-    stats: { "Độ đẹp trai": 100, "Độ vui tính": 99, "Sức khỏe": 98, "Độ ấm áp": 99 },
+    stats: { "Độ đẹp trai": 98, "Độ vui tính": 99, "Sức khỏe": 98, "Độ ấm áp": 99 },
     award: "Năng lượng tích cực nhất hội",
-    message: "Gửi Song Joong Ki của B4! Cảm ơn host xịn của B4 cầu lông nhé. Dưới nước là thần đồng bơi lội, trên sân thì nhiệt tình hết mình. Chúc Mạnh 19/11 vui vẻ, khỏe mạnh, công việc suôn sẻ, và lúc nào cũng tràn năng lượng như vậy nhé."
+    message: "Gửi Song Joong Ki của B4! Cảm ơn host xịn của B4 cầu lông nhé. Dưới nước là thần đồng bơi lội, trên sân thì nhiệt tình hết mình. Chúc Mạnh 19/11 vui vẻ, khỏe mạnh, công việc suôn sẻ, và lúc nào cũng tràn năng lượng như vậy nhé. Chúc Mạnh năm nay đặt sân lúc nào cũng được giờ đẹp!"
   },
   {
     name: "Thư",
     answers: ["Thư"],
     lookalike: "Cha Eun Woo",
     photo: "images/members/thu.jpg",
-    chibi: "images/chibi/thu.svg",
+    chibi: "images/chibi/thu.jpg",
     crop: { x: 82.4, y: 40.4, zoom: 6 },
     hint: "",
     title: "Hoàng tử sân cầu",
-    stats: { "Độ đẹp trai": 100, "Độ vui tính": 98, "Độ lãng tử": 99, "Độ điềm tĩnh": 97 },
+    stats: { "Độ đẹp trai": 98, "Độ vui tính": 98, "Độ lãng tử": 99, "Độ điềm tĩnh": 97 },
     award: "Visual của hội",
-    message: "Gửi Cha Eun Woo của B4! Nhắc tới Thư là nhắc tới Phát, hai người là cặp bạn thân nổi tiếng của hội, đi đâu cũng thấy có nhau. Thư thì điềm tĩnh, nhẹ nhàng, nói chuyện lúc nào cũng từ tốn. Chúc Thư 19/11 vui vẻ, mọi việc như ý, giữ mãi tình bạn với Phát, và mỗi lần ra sân đều thật vui nha."
+    message: "Gửi Cha Eun Woo của B4! Nhắc tới Thư là nhắc tới Phát, hai người là cặp bạn thân nổi tiếng của hội, đi đâu cũng thấy có nhau. Chúc Thư 19/11 vui vẻ, mọi việc như ý, giữ mãi tình bạn với Phát, và mỗi lần ra sân đều thật vui nha. Chúc Thư năm nay làm gì cũng thuận, tiền vào đều đều!"
   },
   {
     name: "Việt Anh",
-    answers: ["Việt Anh"],
+    answers: ["Việt Anh", "Vanh"],
     lookalike: "Lee Jong Suk",
     photo: "images/members/viet-anh.jpg",
-    chibi: "images/chibi/viet-anh.svg",
-    crop: { x: 43.6, y: 100, zoom: 4.5 },
+    chibi: "images/chibi/viet-anh.jpg",
+    crop: { x: 52.5, y: 55.8, zoom: 11 },
     hint: "",
     title: "Chàng thơ đeo kính",
-    stats: { "Độ đẹp trai": 99, "Độ vui tính": 100, "Thời trang": 98, "Độ cool": 99 },
+    stats: { "Độ đẹp trai": 98, "Độ vui tính": 100, "Thời trang": 98, "Độ cool": 99 },
     award: "Gu thời trang mùa hè đỉnh nhất",
-    message: "Gửi Lee Jong Suk của B4! Việt Anh hiền nhất hội luôn, chơi với nhau bao lâu rồi mà chưa thấy cáu ai bao giờ. Đánh cầu với Việt Anh lúc nào cũng thoải mái, không áp lực gì. Chúc Việt Anh 19/11 vui vẻ, khỏe mạnh, công việc thuận lợi, cứ hiền và cool như vậy là được rồi nha."
+    message: "Gửi Lee Jong Suk của B4! Việt Anh hiền nhất hội luôn, chơi với nhau bao lâu rồi mà chưa thấy cáu ai bao giờ. Đánh cầu với Việt Anh lúc nào cũng thoải mái, không áp lực gì. Chúc Việt Anh 19/11 vui vẻ, khỏe mạnh, công việc thuận lợi, cứ hiền và cool như vậy là được rồi nha. Chúc Việt Anh năm nay đánh cầu lên tay, có thêm thật nhiều niềm vui mới!"
   },
   {
     name: "Đức Anh",
     answers: ["Đức Anh", "Mít"],
     lookalike: "Park Seo Joon",
     photo: "images/members/duc-anh.jpg",
-    chibi: "images/chibi/duc-anh.svg",
+    chibi: "images/chibi/duc-anh.jpg",
     crop: { x: 22.5, y: 16.2, zoom: 5 },
     hint: "",
     title: "Quý ông nháy mắt",
-    stats: { "Độ đẹp trai": 100, "Độ vui tính": 100, "Độ duyên dáng": 99, "Độ tự tin": 98 },
+    stats: { "Độ đẹp trai": 98, "Độ vui tính": 100, "Độ duyên dáng": 99, "Độ tự tin": 98 },
     award: "Thánh thần thái của hội",
-    message: "Gửi Park Seo Joon của B4, hay gọi thân thương là Mít! Mít hiền lành, ít nói, nhưng cả hội cần gì là có mặt. Chơi với Mít lâu mới thấy, hiền mà dễ thương cực kỳ. Chúc Mít 19/11 vui vẻ, khỏe mạnh, công việc suôn sẻ, và luôn được mọi người quý như bây giờ nha."
+    message: "Gửi Park Seo Joon của B4, hay gọi thân thương là Mít! Mít hiền lành, ít nói, nhưng cả hội cần gì là có mặt. Chơi với Mít lâu mới thấy, hiền mà dễ thương cực kỳ. Chúc Mít 19/11 vui vẻ, khỏe mạnh, công việc suôn sẻ, và luôn được mọi người quý như bây giờ nha. Chúc Mít năm nay lên trình thật nhanh, trận nào cũng thắng!"
   },
   {
     name: "Hoàng Anh",
-    answers: ["Hoàng Anh"],
+    answers: ["Hoàng Anh", "Hanh"],
     lookalike: "Tom Holland",
     photo: "images/members/hoang-anh.jpg",
-    chibi: "images/chibi/hoang-anh.svg",
-    crop: { x: 42.0, y: 16.9, zoom: 8 },
+    chibi: "images/chibi/hoang-anh.jpg",
+    crop: { x: 23.7, y: 100, zoom: 3.2 },
     hint: "",
     title: "Người nhện của sân cầu",
-    stats: { "Độ đẹp trai": 99, "Độ vui tính": 99, "Độ nhanh nhẹn": 98, "Độ chill": 100 },
+    stats: { "Độ đẹp trai": 98, "Độ vui tính": 99, "Độ nhanh nhẹn": 98, "Độ chill": 100 },
     award: "Phản xạ nhanh như người nhện",
-    message: "Gửi Tom Holland của B4! Hoàng Anh hơi nhạt thật, nhưng là kiểu nhạt dễ chịu: hiền, ít nói. Ra sân thì phản xạ nhanh chẳng kém người nhện. Chúc Hoàng Anh 19/11 vui vẻ, khỏe mạnh, mọi việc suôn sẻ nha."
+    message: "Gửi Tom Holland của B4! Hoàng Anh hơi nhạt thật, nhưng là kiểu nhạt dễ chịu: hiền, ít nói. Ra sân thì phản xạ nhanh chẳng kém người nhện. Chúc Hoàng Anh 19/11 vui vẻ, khỏe mạnh, mọi việc suôn sẻ nha. Chúc năm nay tiền vào đầy túi như tấm ảnh xòe tiền kia luôn!"
   },
   {
     name: "Dũng",
     answers: ["Dũng"],
     lookalike: "Park Bo Gum",
     photo: "images/members/dung.jpg",
-    chibi: "images/chibi/dung.svg",
+    chibi: "images/chibi/dung.jpg",
     crop: { x: 48.8, y: 81.2, zoom: 6 },
     hint: "",
     title: "Chàng trai ấm áp",
-    stats: { "Độ đẹp trai": 100, "Độ vui tính": 99, "Độ ấm áp": 100, "Độ dũng mãnh": 97 },
+    stats: { "Độ đẹp trai": 98, "Độ vui tính": 99, "Độ ấm áp": 100, "Độ dũng mãnh": 97 },
     award: "Nụ cười ấm áp nhất hội",
-    message: "Gửi Park Bo Gum của B4! Dũng thủ thì khỏi phải bàn, cầu khó mấy vào tay Dũng cũng được đỡ lên. Ngoài sân thì lại hài không ai bằng, nói câu nào cả hội cười câu đó. Chúc Dũng 19/11 vui vẻ, khỏe mạnh, công việc thuận lợi, giữ vững phong độ thủ siêu hay và nụ cười ấm áp như vậy nha."
+    message: "Gửi Park Bo Gum của B4! Dũng thủ thì khỏi phải bàn, cầu khó mấy vào tay Dũng cũng được đỡ lên. Ngoài sân thì lại hài không ai bằng, nói câu nào cả hội cười câu đó. Chúc Dũng 19/11 vui vẻ, khỏe mạnh, công việc thuận lợi, giữ vững phong độ thủ siêu hay như vậy nha. Chúc Dũng năm nay đi đâu cũng vui, chuyến đi nào cũng có ảnh đẹp!"
   }
 ];
 
@@ -194,5 +196,7 @@ const CLOSING = {
   treatQuestion: "Hôm nay chị em bao, chọn 1 trong 2 nha:",
   treatOptions: ["Nước lọc ở sân 💧", "Trà đá vỉa hè 🧊"],
   treatReveal: "Đùa thôi 🤭 Ai lại bao nước lọc thật. Hẹn các anh ở sân, chị em bao thật!",
+  thanksTitle: "Gửi lời cảm ơn tới chị em",
+  thanksSub: "Chạm vào trái tim để thả tim cho chị em B4",
   footer: "Đã nương tay rồi đấy. Hẹn nhau trên sân 🏸"
 };

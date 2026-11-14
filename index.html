@@ -40,7 +40,7 @@
 
   <!-- ===== MÀN 0: TỦ ĐỒ KHÓA ===== -->
   <section class="screen" id="screen-lock">
-    <p class="occasion">Ngày Quốc tế Nam giới, 19 tháng 11</p>
+    <p class="occasion">Ngày Quốc tế Nam giới</p>
     <div class="locker-wrap">
       <div class="locker" id="locker">
         <div class="locker-door">
@@ -49,13 +49,26 @@
           <p class="plate-sub">Tủ đồ các chiến thần</p>
           <div class="locker-handle"></div>
         </div>
-        <div class="locker-inside"><span class="inside-glow"></span></div>
+        <div class="locker-inside"><img class="locker-photo" id="locker-photo" alt=""><span class="inside-glow"></span></div>
       </div>
       <button class="tag" id="hint-btn" type="button"><span class="tag-hole"></span>Quên mật mã?</button>
     </div>
     <p class="lock-title" id="lock-title">Mời anh mở tủ</p>
     <p class="lock-sub">Xoay đúng 4 con số</p>
     <div class="wheels" id="wheels" role="group" aria-label="Khóa số"></div>
+
+    <!-- Lời chào hiện ra sau khi mở tủ -->
+    <div class="welcome" id="welcome" hidden>
+      <figure class="welcome-card">
+        <img id="welcome-photo" alt="Ảnh chị em B4">
+        <figcaption id="welcome-text"></figcaption>
+      </figure>
+      <div class="welcome-actions">
+        <button class="btn" id="welcome-btn" type="button">Vào chơi</button>
+        <button class="btn btn-quiet runaway" id="no-btn" type="button">Không nhận quà</button>
+      </div>
+      <p class="runaway-msg" id="runaway-msg" aria-live="polite"></p>
+    </div>
   </section>
 
   <!-- ===== MÀN 1: BẮT ĐẦU ===== -->
@@ -133,6 +146,12 @@
       <p class="treat-q" id="treat-q"></p>
       <div class="treat-opts" id="treat-opts"></div>
       <p class="treat-reveal" id="treat-reveal" hidden></p>
+    </div>
+    <div class="thanks">
+      <h2 id="thanks-title"></h2>
+      <p class="thanks-sub" id="thanks-sub"></p>
+      <button class="heart-btn" id="heart-btn" type="button" aria-label="Thả tim cho chị em">❤️</button>
+      <p class="heart-count" id="heart-count" aria-live="polite"></p>
     </div>
     <footer id="footer"></footer>
   </section>
