@@ -34,12 +34,12 @@ const SITE = {
 const MEMBERS = [
   {
     name: "Hiệp",
-    answers: ["Anh Hiệp"],
+    answers: ["Anh Hiệp", "Hiệp"],
     lookalike: "Lee Dong Wook",
     photo: "images/members/hiep.jpg",
     chibi: "images/chibi/hiep.jpg",
     crop: { x: 8.8, y: 35.0, zoom: 5 },
-    hint: "Anh cả của hội. Gõ đủ 2 tiếng nha, bắt đầu bằng chữ A.",
+    hint: "",
     title: "Quý ông lịch lãm của sân cầu",
     stats: { "Độ đẹp trai": 98, "Độ vui tính": 99, "Phong độ": 95, "Độ ngầu khi đội mũ": 100 },
     award: "Thần thái đội mũ đẹp nhất hội",
@@ -56,7 +56,7 @@ const MEMBERS = [
     title: "Chiến binh ánh mắt biết nói",
     stats: { "Độ đẹp trai": 100, "Độ vui tính": 100, "Ánh mắt sát thương": 98, "Phát nào ăn điểm phát đó": 96 },
     award: "Đeo khẩu trang vẫn đẹp trai",
-    message: "Gửi Ji Chang Wook của B4! Cao, đẹp trai, đánh cầu hay, tính lại hiền và tốt bụng, nói chung Phát có đủ combo. Chúc Phát 19/11 vui vẻ, công việc suôn sẻ, phát nào ăn điểm phát đó, và sớm có bồ nha!"
+    message: "Gửi Ji Chang Wook của B4! Phát cao, đẹp trai, đánh cầu hay, tính lại hiền và tốt bụng, nói chung là đủ combo. Thêm cái hiểu chị em, rảnh là cày phim. Chúc Phát 19/11 vui vẻ, công việc suôn sẻ, phát nào ăn điểm phát đó, và sớm có bồ để có người xem phim cùng nha!"
   },
   {
     name: "Trí",
@@ -69,7 +69,7 @@ const MEMBERS = [
     title: "Học giả cầu lông",
     stats: { "Độ đẹp trai": 100, "Độ vui tính": 98, "Trí tuệ chiến thuật": 99, "Độ chỉn chu": 97 },
     award: "Búi tóc huyền thoại",
-    message: "Gửi Hyun Bin của B4! Ấn tượng đầu tiên của chị em về Trí là: đánh cầu hay nhất nhóm, mà mặt thì hơi lạnh, chắc khó gần. Chơi một thời gian mới biết Trí hòa đồng, dễ nói chuyện hơn vẻ ngoài nhiều. Chúc Trí 19/11 vui vẻ, mọi việc thuận lợi, giữ vững phong độ số một trên sân. Có gì chỉ chị em đánh với nha."
+    message: "Gửi Hyun Bin của B4! Ấn tượng đầu tiên của chị em về Trí là: đánh cầu hay nhất nhóm, mặt hơi lạnh nhưng đẹp trai, nhìn tưởng khó gần. Chơi một thời gian mới biết Trí hòa đồng, dễ nói chuyện hơn vẻ ngoài nhiều. Chúc Trí 19/11 vui vẻ, mọi việc thuận lợi, giữ vững phong độ số một trên sân nha."
   },
   {
     name: "Huy",
@@ -82,7 +82,7 @@ const MEMBERS = [
     title: "Nụ cười tỏa nắng",
     stats: { "Độ đẹp trai": 100, "Độ vui tính": 100, "Nụ cười chữa lành": 100, "Năng lượng": 97 },
     award: "Nụ cười đẹp nhất sân",
-    message: "Gửi Lý Hiện của B4! Huy hài thì khỏi bàn, mà hiền nữa, nhờ gì cũng giúp. Chúc Huy 19/11 vui vẻ, khỏe mạnh, công việc thuận lợi, và Messi đá trận nào thắng trận đó để Huy còn ăn mừng nha. Năm nay chúc Huy gặp nhiều may mắn, muốn gì được nấy!"
+    message: "Gửi Lý Hiện của B4! Huy hài thì khỏi bàn, mà hiền nữa, nhờ gì cũng giúp, lại còn cười rất đẹp trai. Chúc Huy 19/11 vui vẻ, khỏe mạnh, công việc thuận lợi, và Messi đá trận nào thắng trận đó để Huy còn ăn mừng nha. Năm nay chúc Huy gặp nhiều may mắn, muốn gì được nấy!"
   },
   {
     name: "Mạnh",
@@ -142,12 +142,12 @@ const MEMBERS = [
     lookalike: "Tom Holland",
     photo: "images/members/hoang-anh.jpg",
     chibi: "images/chibi/hoang-anh.jpg",
-    crop: { x: 23.7, y: 100, zoom: 3.2 },
+    crop: { x: 61.2, y: 45.2, zoom: 6 },
     hint: "",
     title: "Người nhện của sân cầu",
     stats: { "Độ đẹp trai": 98, "Độ vui tính": 99, "Độ nhanh nhẹn": 98, "Độ chill": 100 },
     award: "Phản xạ nhanh như người nhện",
-    message: "Gửi Tom Holland của B4! Hoàng Anh hơi nhạt thật, nhưng là kiểu nhạt dễ chịu: hiền, ít nói. Ra sân thì phản xạ nhanh chẳng kém người nhện. Chúc Hoàng Anh 19/11 vui vẻ, khỏe mạnh, mọi việc suôn sẻ nha. Chúc năm nay tiền vào đầy túi như tấm ảnh xòe tiền kia luôn!"
+    message: "Gửi Tom Holland của B4! Hoàng Anh hơi nhạt thật, nhưng là kiểu nhạt dễ chịu: hiền, ít nói. Ra sân thì phản xạ nhanh chẳng kém người nhện. Chúc Hoàng Anh 19/11 vui vẻ, khỏe mạnh, mọi việc suôn sẻ nha. Chúc năm nay đi xe đâu cũng ngủ ngon, mà lên sân thì vẫn tỉnh như sáo nha!"
   },
   {
     name: "Dũng",
